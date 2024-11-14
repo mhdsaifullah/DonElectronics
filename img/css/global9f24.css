@@ -1,0 +1,113 @@
+﻿@charset "utf-8";
+.f30{font-size: 30px;}
+.new-ico{background-image: url('../img/icons.png'); background-repeat: no-repeat; vertical-align: text-bottom; display: inline-block;}
+.ico-calculator{width: 17px; height: 21px; background-position: -30px 0;}
+.ico-cart{width: 20px; height: 20px; background-position: -60px 0;}
+.white{color: #ffffff;}
+.cl-936c30{color: #936c30;}
+.cl-a78732{color: #a78732;}
+.cl-a8a8a8{color: #a8a8a8;}
+.cl-b8a87e{color: #b8a87e;}
+.cl-464646{color: #464646;}
+.cl-5e5e5e{color: #5e5e5e;}
+.cl-626262{color: #626262;}
+.cl-696969{color: #696969;}
+.cl-6a6a6a{color: #6a6a6a;}
+.cl-737373{color: #737373;}
+.cl-7c7c7c{color: #7c7c7c;}
+.cl-868686{color: #868686;}
+.cl-9f9f9f{color: #9f9f9f;}
+.cl-f90{color: #f90;}
+.ml5{margin-left: 5px;}
+.ml20{margin-left: 20px;}
+.mr5{margin-right: 5px;}
+.mr10{margin-right: 10px;}
+.mb50{margin-bottom: 50px;}
+/*头部*/
+.topbar{width: 100%; /*height: 41px;*/ background-color: #7b5822; border-bottom:1px solid #8a7048; transition:background .3s cubic-bezier(0,0,.2,1) .15s;}
+.topbar.active{background-color: #3c3c3c; border-bottom-color: #4d4d4d; transition:background .3s cubic-bezier(0,0,.2,1) 0ms;}
+.topbar.active .top-nav{border-bottom-color: #4d4d4d;}
+.topbar .logo{margin-top: 9px;}
+.header .dropDownNav .new-ico{position: absolute; top: -10px; right: -12px; width: 23px; height: 16px; background-position: 0 0;}
+.header-right{position: absolute; top: 0; right: 20px; z-index: 8;}
+.header-right dd{float: left; margin-left: 24px;}
+.header-right a{line-height: 56px;}
+.headercar{display: block; width: 140px; height: 56px; text-align: center; background-color: #ff9900;}
+.headercar em{position: absolute; top: 9px; left: 50px; min-width: 18px; height: 18px; text-align: center; line-height: 18px; font-size: 12px; background-color: #000; color: #fff; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;}
+.headercar:hover{background-color: #ffad33;}
+.headercar span{display: inline-block; text-indent: 12px;}
+/*重定义*/
+/*.top-nav{width: auto; height: 40px; padding-left: 20px; padding-right: 20px; background-color: transparent; border-bottom-color: #8a7048;}*/
+/*.top-nav li a.white{color: #ffffff !important;}
+.top-nav li.on a.white{color: #f90 !important;}*/
+/*.top-nav li .span, .top-nav .t_user, .top-nav .btn-message{line-height: 40px;}*/
+/*.top-nav li.i-delimit{margin-top: 13px;}
+.btn-message .i-ico{background: url('../img/icons.png') no-repeat -250px 0;}
+.header{background-color: #7b5822; padding: 0; height: 55px;}
+.header .menutop{width: 100%; margin-left: 0; margin-top: 0; z-index: 6;}
+.header .menutop li{margin-top: 17px; padding-left: 20px; margin-right: 4px;}
+.header .menutop a{height: 36px; color: #ffffff; margin: 0;}
+#magic-line{top: 36px; z-index: 4;}
+.header .secondNav{top: 56px; left: 0; z-index: 3; width: 100%; height: 46px; line-height: 46px; background-color: #2b2b2b; box-shadow: none;}
+.header .secondNav dd{float: left;}
+.header .secondNav dd a{width: auto; height: 46px; line-height: 46px; padding-left: 20px;}
+.header .secondNav dd a:hover{color:#ff9900; background-color:transparent;}*/
+
+/*new-footer*/
+.new-footer{background-color: #f1f1f1; padding: 25px 0;}
+
+/*.bottom-navigation{width: 810px; padding: 10px 0 0px 70px; border-right: 1px solid #d7d7d7;}*/
+.bottom-navigation dl{float: left; width:20%; padding-right:2em;}/*width: 20%;*/
+
+/*.contact-mail{width: 419px; margin-top: 20px; text-align: center;}*/
+.contact-mail .new-ico{width: 58px; height: 38px; background-position: -200px -90px;}
+
+/*重定义*/
+/*.footbox{margin-top: 0; padding-left: 70px; border-top: 1px solid #d7d7d7; border-bottom: 1px solid #d7d7d7;}
+.followus a.followus-icon{height: 20px; background-image: url('../img/icons.png');}
+.followus a.twitter{width: 22px; background-position: -100px -130px;}
+.followus a.youtube{width: 9px; background-position: -130px -130px;}
+.followus a.sns-in{width: 19px; background-position: -150px -130px;}
+.followus a.plus-google{width: 17px; height: 19px; background-position: -180px -130px;}*/
+
+/*评分*/
+.score{width: 80px; height: 15px; background: url("../img/icons.png") no-repeat -160px -55px;}
+.score i{position: absolute; top: 0; left: 0; height: 15px; background-position: -160px -40px;}
+
+
+.btn-comm{padding: 6px 10px; background-color: #f90; text-align: center; color: #fff !important; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; display: block;}
+.btn-comm:hover{background-color: #ffad33;}
+/*20181205注册的金币*/
+.ico-redpacket {position: absolute;left: 50%;top: -17px;margin-left: -27px;width: 55px;height: 70px;background: url('../img/tab-goldcoin.html') no-repeat;
+-webkit-animation: mymove 2s both linear infinite;
+
+-moz-animation: mymove 2s both linear infinite;
+
+-ms-animation: mymove 2s both linear infinite;
+
+animation: mymove 2s both linear infinite;
+}
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+     0%{background-position: 0 -186px;}
+    100%{background-position: 0 214px;}
+}
+@-moz-keyframes mymove
+{
+    0%{background-position: 0 -186px;}
+    100%{background-position: 0 214px;}
+}
+@-ms-keyframes mymove
+{
+    0%{background-position: 0 -186px;}
+    100%{background-position: 0 214px;}
+}
+@keyframes mymove
+{
+    0%{background-position: 0 -186px;}
+    100%{background-position: 0 214px;}
+}
+
+@media screen and  (mim-width: 750px){
+    .rightsidebar{display:none;}
+}

@@ -1,0 +1,394 @@
+﻿.radioIcon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: text-top
+}
+
+.radioActive {
+    background: url('../../img/onlineNew/radioActive.png')no-repeat top center;
+    background-size: 100%;
+    border: none
+}
+
+.para_select.canPrice {
+    padding-bottom: 50px
+}
+
+.TestTextReport {
+    line-height: 30px
+}
+
+.Download {
+    display: block
+}
+
+    .Download i {
+        display: inline-block;
+        vertical-align: middle;
+        width: 18px;
+        height: 18px;
+        background: url(../../img/activity/pdf/icons.png) no-repeat center;
+        background-size: cover;
+        margin-right: 5px
+    }
+
+    .Download a {
+        display: inline-block;
+        vertical-align: middle;
+        color: #f90;
+        text-decoration: underline
+    }
+
+.wen_tip_pointer {
+    width: 20px;
+    height: 20px;
+    background: url(../../img/onlineNew/wentip.png) no-repeat center;
+    display: inline-block;
+    vertical-align: sub
+}
+
+.table-FR4Type a, .isQian {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.altOptionList .bnsa {
+    display: block;
+    width: 10em;
+    margin: 5px auto 0;
+    text-align: center;
+}
+
+.optionList {
+    height: 290px;
+    overflow: auto;
+    margin: 10px 15px 20px;
+}
+
+    .optionList li label {
+        border-bottom: 1px solid #eee;
+        padding: 4px;
+        display: block
+    }
+
+.boxPcbUpFile .s2 p {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.color-option .option-choose .item {
+    min-width: 61px;
+    padding-left: 18px;
+}
+
+.color-option .option-choose .SolderColormatteblack, .color-option .option-choose .SolderColormattegreen {
+    width: 96.5px;
+}
+
+.color-option .option-choose .example-color {
+    left: 4px;
+    top: calc(50% - 6px);
+    position: absolute;
+}
+
+.max-option {
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    transition: height 0.5s;
+    padding-right: 100px;
+}
+
+    .max-option .collapse-tigger {
+        position: absolute;
+        bottom: 2px;
+        right: 13px;
+        color: #666;
+        border: 1px solid #ddd;
+        line-height: 26px;
+        background: #fff;
+        border-radius: 2px;
+        padding: 0 10px;
+        min-width: 90px;
+        text-align: center;
+        display: inline-block;
+    }
+
+.collapse-tigger:before {
+    content: 'More Options';
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.uncollapse .collapse-tigger:before {
+    content: 'Hide';
+}
+
+.collapse-tigger-disabled {
+    pointer-events: none;
+    background-color: #eee !important;
+    color: #bbb !important;
+    cursor: not-allowed !important;
+}
+
+.max-option.uncollapse {
+    /*max-height: 300px;*/
+    padding-right: 0px;
+}
+
+.min-option-con .option-choose .item {
+    min-width: 52px;
+}
+
+[option-name=SurfaceFinish] .option-choose .item {
+    min-width: 64px;
+}
+
+.pcb-card-title, .titleSel {
+    cursor: pointer;
+    background-color: rgba(240, 240, 240, 1);
+    line-height: 38px;
+    border-radius: 5px;
+    font-size: 16px;
+    position: relative;
+}
+
+.pcb-card-title {
+    padding-left: 12px !important;
+}
+
+.titleSel {
+    padding-left: 39px !important;
+}
+
+.pcb-card-title:after {
+    content: '\e608';
+    font-family: iconfont_dg;
+    display: inline-block;
+    margin-left: 1em;
+    font-size: .6em;
+    position: absolute;
+    right: 24px;
+}
+
+.pcb-card-show .pcb-card-title:after {
+    transform: rotate(180deg);
+}
+
+.boxPcbUpFile {
+    padding: 16px 0;
+    border-radius: 5px;
+}
+
+.info_basic .bnsa.sk {
+    border-radius: 3px;
+    padding: 0px 12px;
+    margin: 0;
+    height: 32px;
+}
+
+    .info_basic .bnsa.sk > span {
+        line-height: 32px;
+    }
+
+.boxPcbUpFile .bnUp span, .boxPcbUpFile .stop span {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 500;
+    vertical-align: text-bottom;
+}
+
+.calc_btn {
+    border-radius: 3px;
+    padding: 9px 0 7px;
+    width: 218px !important;
+    font-size: 18px !important;
+    line-height: 20px !important;
+    vertical-align: text-bottom;
+    font-weight: 500;
+}
+
+.boxPcbUpFile .n p {
+    margin-bottom: 5px;
+}
+
+.option-size .form-control, #Num, .info_basic .option-size .form-control {
+    width: 80px;
+    height: 28px;
+}
+
+.option-size {
+    height: 30px;
+}
+.wen_tip, .item-tips .jp-ico {
+    width: 16px;
+    height: 16px;
+    background: url(../../img/onlineNew/wen2.png) no-repeat center;
+    float: right;
+    vertical-align: sub;
+}
+.subscript-ico {
+    background-position: -106px -365px;
+    width: 16px;
+    height: 16px;
+}
+.jp-ico {
+    background-image: url(../../img/lu/new/pcb/icons.png);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.boxQuoteRightInfo .bnAddCart {
+    width: 100%;
+    text-align: center;
+    line-height: 1.3em;
+    font-size: 20px;
+    font-weight: 500;
+}
+   
+    /*计价按钮的2种样式*/
+    .price_btn {
+        width: 100%;
+        padding: 15px 0;
+        margin: auto;
+        background: #F9F9F9
+    }
+
+.price_btn1 {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    z-index: 9
+}
+/*加载*/
+.loader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+}
+
+    .loader svg path, .loader svg rect {
+        fill: #f90;
+    }
+
+@-webkit-keyframes loading-3 {
+    50% {
+        transform: scale(0.4);
+        opacity: .4;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.loading-3 {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    left: 16px
+}
+
+    .loading-3 i {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #f90;
+        position: absolute;
+    }
+
+        .loading-3 i:nth-child(1) {
+            top: 25px;
+            left: 0;
+            -webkit-animation: loading-3 1s ease 0s infinite;
+        }
+
+        .loading-3 i:nth-child(2) {
+            top: 17px;
+            left: 17px;
+            -webkit-animation: loading-3 1s ease -0.12s infinite;
+        }
+
+        .loading-3 i:nth-child(3) {
+            top: 0px;
+            left: 25px;
+            -webkit-animation: loading-3 1s ease -0.24s infinite;
+        }
+
+        .loading-3 i:nth-child(4) {
+            top: -17px;
+            left: 17px;
+            -webkit-animation: loading-3 1s ease -0.36s infinite;
+        }
+
+        .loading-3 i:nth-child(5) {
+            top: -25px;
+            left: 0;
+            -webkit-animation: loading-3 1s ease -0.48s infinite;
+        }
+
+        .loading-3 i:nth-child(6) {
+            top: -17px;
+            left: -17px;
+            -webkit-animation: loading-3 1s ease -0.6s infinite;
+        }
+
+        .loading-3 i:nth-child(7) {
+            top: 0px;
+            left: -25px;
+            -webkit-animation: loading-3 1s ease -0.72s infinite;
+        }
+
+        .loading-3 i:nth-child(8) {
+            top: 17px;
+            left: -17px;
+            -webkit-animation: loading-3 1s ease -0.84s infinite;
+        }
+
+.loader_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+@keyframes admRTtbtb {
+    0% {
+        transform: translate(0,-2px)
+    }
+
+    100% {
+        transform: translate(0,0)
+    }
+}
+
+.online-quotes-input li {
+    margin-bottom: 0px;
+}
+
+.size_tips {
+    width: 157px;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    top: -2px;
+    left: 100%;
+    background: url(../../img/onlineNew/tips.png) no-repeat center;
+    padding-left: 18px;
+    z-index: 201
+}
