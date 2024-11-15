@@ -36,19 +36,7 @@ var TopNotice = new (function () {
 
     }
     this.ShowNotice = ShowNotice;
-    /**
-     * 获取并展示通知
-     * @param {any} position
-     */
-    this.Notice = function (position) {
-        that.GetNoticeData(position, function (data) {
-            that.ShowNotice(data)
-        });
-    }
 
 
-    this.GetNoticeData = function (position, callback) {
-        $.get('DonElectronics/GetWebNotice', { position: position }, callback)
-    }
 
 });
