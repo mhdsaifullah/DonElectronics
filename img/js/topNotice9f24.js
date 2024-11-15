@@ -49,7 +49,7 @@ var TopNotice = new (function () {
 
 
     this.GetNoticeData = function (position, callback) {
-        $.get('DonElectronics/GetWebNotice', { position: position }, callback)
+        $.get('/GetWebNotice', { position: position }, callback)
     }
 
 });
