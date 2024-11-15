@@ -5709,7 +5709,7 @@ var Pcb = {
     //显示物流信息
     showShipInfo: function (days, weight, price, Pic) {
 		//price = price + 15; // Shipping Price
-        var shipPic = Pic ? `<i class="expresslogo" style="background-image: url('./img/images/country/${Pic}')"></i>` : '';
+        var shipPic = Pic ? `<i class="expresslogo" style="background-image: url('./img/img/images/country/${Pic}')"></i>` : '';
         $(".boxSelSC .info .detail").html(`${shipPic} Shipping info: <b>${days || '*'} days   Wt: ${parseFloat(weight).toFixed(2)} kg</b>Shipping cost: <b class="w">$${price}</b>`)
         $(".boxQuoteRightInfo .totalCost .ss").html(`$${price}`);
     },
@@ -7863,7 +7863,7 @@ function CalShip(k) {
     $(".expresslogo").show();
     var shippic = $(".selShip option:selected").attr("pic");
     if (shippic != undefined)
-        $(".expresslogo").attr("src", "./img/images/country/" + shippic);
+        $(".expresslogo").attr("src", "./img/img/images/country/" + shippic);
     var x = y = num = Thickness = 0;
     //var shipname = $.trim($('.selShip option:selected').text());
     //var countryname = $.trim($('select[name=selShipCountry] option:selected').text());
