@@ -1,0 +1,7 @@
+﻿.boardnumberbtn a {
+    color: #454545;
+}
+.boardnumberbtn > span {
+    line-height: 20px;
+    display: inline-block;
+}
