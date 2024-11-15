@@ -1,7 +1,7 @@
 ﻿//// 依赖layui
 layui.define(['layer', 'laytpl'], function (exports) {
     // do something
-    layui.link('../../img/css/components/pcbnum.css');
+    layui.link('../img/css/components/pcbnum.css');
     var laytpl = layui.laytpl;
     var layer = layui.layer;
     function getNums() {
