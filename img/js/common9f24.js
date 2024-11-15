@@ -2371,16 +2371,7 @@ var fnSelectSCS = (function () {
         }
     }
 }());
-//【ID1003479】03.27 ALLPCB 百度统计
-var _hmt = _hmt || [];
-(function () {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?8ff4f95ff898c85481bea3d53d4b2774";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
 
-/** 节日活动 */
 var FestivalEvent = {
     /** 2023 圣诞活动 */
     christmas2023: function () {
