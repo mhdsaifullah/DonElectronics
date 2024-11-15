@@ -1,4 +1,3 @@
-﻿/** 顶部通知 */
 var TopNotice = new (function () {
     var that = this
     function GetHtml(notice) {
@@ -49,7 +48,7 @@ var TopNotice = new (function () {
 
 
     this.GetNoticeData = function (position, callback) {
-        $.get('/GetWebNotice', { position: position }, callback)
+        $.get('DonElectronics/GetWebNotice', { position: position }, callback)
     }
 
 });
