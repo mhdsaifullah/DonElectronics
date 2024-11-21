@@ -1137,7 +1137,7 @@ body,input,textarea{font-family:'HarmonyOS_Sans';}
 .main_mbRight .tit{padding:0 0 .5em; font-size:.8em; border-bottom:1px solid #eee; margin-bottom:1em}
 .main_mbRight #changePwd{max-width:500px; padding:1.5em 0 0}
 .bkfcf{background-color:#FCF1E6;}
-.boxflxsb{display:flex; justify-content:space-between;}
+.boxflxsb{justify-content:space-between;}
 
 [v-show],[v-if]{display: none!important;}
 
