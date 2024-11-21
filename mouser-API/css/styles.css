@@ -13,7 +13,7 @@ body {
     padding: 0;
 }
 
-.container {
+.APIcontainer {
     max-width: 90%; /* Adjust width dynamically */
     margin: 50px auto;
     padding: 20px;
@@ -122,7 +122,7 @@ img {
 
 /* Responsive Design */
 @media (max-width: 800px) {
-    .container {
+    .APIcontainer {
         max-width: 95%;
         margin: 20px auto;
         padding: 15px;
