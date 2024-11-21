@@ -1247,7 +1247,7 @@ a.bnsa.close:focus{color:#f90}
 .nheadr21 .head_btn.signUp{border-color:#f90; background-color:#f90; color:#fff; margin:0}
 .nheadr21 .head_btn.signUp:hover{color:#fff!important; background-color: rgba(255, 153, 0,.7)
 }
-.nheadr21 .head_btn.logIn:hover{border-color:#f90; color:#f90!important;}
+.nheadr21 .head_btn.logIn:hover{border-color:#3c49a2; color:#f0f2ff !important;}
 .user_bottom img{margin:0!important;}
 .user_bottom{padding-bottom:0!important;}
 .usermsliimgs{overflow: hidden; padding-bottom:10px;}
