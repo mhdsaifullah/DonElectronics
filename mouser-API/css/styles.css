@@ -27,25 +27,25 @@
 /* Font Faces */
 @font-face {
     font-family: 'HarmonyOS_Sans';
-    src: URL(../img/fontNew/HarmonyOS_Sans_Light.ttf);
+    src: URL(../../img/fontNew/HarmonyOS_Sans_Light.ttf);
     font-weight: 200;
 }
 
 @font-face {
     font-family: 'HarmonyOS_Sans';
-    src: URL(../img/fontNew/HarmonyOS_Sans_Regular.ttf);
+    src: URL(../../img/fontNew/HarmonyOS_Sans_Regular.ttf);
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'HarmonyOS_Sans';
-    src: URL(../img/fontNew/HarmonyOS_Sans_Medium.ttf);
+    src: URL(.../../img/fontNew/HarmonyOS_Sans_Medium.ttf);
     font-weight: 500;
 }
 
 @font-face {
     font-family: 'HarmonyOS_Sans';
-    src: URL(../img/fontNew/HarmonyOS_Sans_Bold.ttf);
+    src: URL(../../img/fontNew/HarmonyOS_Sans_Bold.ttf);
     font-weight: bold;
 }
 
