@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
 /* Basic clearfix to clear floats */
 .clearfix::after {
     content: "";
@@ -428,5 +432,88 @@ img {
 
     .selected-price {
         margin-top: 10px;
+    }
+}
+
+/* Full-page loading overlay */
+#loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent overlay */
+    z-index: 9999;
+    flex-direction: column; /* Stack spinner and text vertically */
+    text-align: center; /* Center the text */
+}
+
+.spinner {
+    border: 4px solid #f3f3f3; /* Light gray */
+    border-top: 4px solid #3498db; /* Blue color */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+/* Loading text styling with fading effect */
+#loading p {
+    position: relative;  /* Change this to absolute if needed */
+    margin-top: 10px; /* Space between spinner and text */
+    font-size: 30px;
+font-style: italic;
+    color: #007bff;
+    font-weight: bold;
+    animation: colorRotate 1s infinite; /* Fading effect */
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes colorRotate {
+    from {
+      color: #007bff;
+    }
+    50% {
+      color: #0099ff;
+    }
+    100% {
+      color: #3b49a2;
+    }
+  }
+/* Fading effect for the text */
+@keyframes fadeText {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .spinner {
+        width: 50px;
+        height: 50px;
+    }
+
+    #loading p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .spinner {
+        width: 40px;
+        height: 40px;
+    }
+
+    #loading p {
+        font-size: 1em;
     }
 }

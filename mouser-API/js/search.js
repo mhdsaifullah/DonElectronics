@@ -105,6 +105,9 @@ function processCSV(csvData) {
 }
 
 function searchByKeyword(apiKey, keyword) {
+
+    showLoading(); // Show loading before fetching
+
     const requestData = {
         SearchByKeywordRequest: {
             keyword: keyword,
@@ -125,10 +128,18 @@ function searchByKeyword(apiKey, keyword) {
     })
         .then(response => response.json())
         .then(data => displayResults(data))
-        .catch(error => console.error('Error:', error));
+        .then(data => hideLoading())
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error fetching results.');
+            hideLoading();
+        });
 }
 
 function searchByPartNumber(apiKey, partNumber) {
+
+    showLoading(); // Show loading before fetching
+
     const requestData = {
         SearchByPartRequest: {
             mouserPartNumber: partNumber,
@@ -146,7 +157,12 @@ function searchByPartNumber(apiKey, partNumber) {
     })
         .then(response => response.json())
         .then(data => displayResults(data))
-        .catch(error => console.error('Error:', error));
+        .then(data => hideLoading())
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error fetching results.');
+            hideLoading();
+        });
 }
 
 function updatePrice(selectElement) {
@@ -226,4 +242,11 @@ function generatePriceDropdown(part) {
         `;
     }
     return 'N/A';
+}
+function showLoading() {
+    document.getElementById('loading').style.display = 'flex';
+}
+// Hide loading indicator function
+function hideLoading() {
+    document.getElementById('loading').style.display = 'none';
 }
