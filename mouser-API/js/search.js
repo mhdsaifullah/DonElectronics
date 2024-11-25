@@ -14,6 +14,96 @@ document.getElementById('searchForm').addEventListener('submit', function (event
     }
 });
 
+// Handle CSV file upload
+
+document.getElementById('csvUpload').addEventListener('change', function (event) {
+
+    const file = event.target.files[0];
+
+    if (file && file.type === 'text/csv') {
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+
+            const csvData = e.target.result;
+
+            processCSV(csvData);
+
+        };
+
+        reader.readAsText(file);
+
+    } else {
+
+        alert('Please upload a valid CSV file.');
+
+    }
+
+});
+
+// Add drag-and-drop functionality
+const uploadContainer = document.querySelector('.upload-container');
+
+uploadContainer.addEventListener('dragover', function (event) {
+    event.preventDefault();
+    uploadContainer.classList.add('dragover');
+});
+
+uploadContainer.addEventListener('dragleave', function () {
+    uploadContainer.classList.remove('dragover');
+});
+
+uploadContainer.addEventListener('drop', function (event) {
+    event.preventDefault();
+    uploadContainer.classList.remove('dragover');
+
+    const file = event.dataTransfer.files[0];
+    if (file && file.type === 'text/csv') {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const csvData = e.target.result;
+            processCSV(csvData);
+        };
+        reader.readAsText(file);
+    } else {
+        alert('Please upload a valid CSV file.');
+    }
+});
+
+
+// Process the CSV file
+
+function processCSV(csvData) {
+
+    const lines = csvData.split('\n');
+
+    lines.forEach(line => {
+
+        const columns = line.split(',');
+
+        if (columns.length >= 2) {
+
+            const keyword = columns[0].trim();
+
+            const partNumber = columns[1].trim();
+
+            if (keyword) {
+
+                searchByKeyword('8c6b9643-d11b-49fa-9175-e3ff62100c48', keyword);
+
+            } else if (partNumber) {
+
+                searchByPartNumber('8c6b9643-d11b-49fa-9175-e3ff62100c48', partNumber);
+
+            }
+
+        }
+
+    });
+
+}
+
 function searchByKeyword(apiKey, keyword) {
     const requestData = {
         SearchByKeywordRequest: {

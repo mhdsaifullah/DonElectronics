@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,107 +10,46 @@
     <link type="text/css" rel="stylesheet" href="../img/css/newbase_v19f24.css" />
     <link rel="stylesheet" href="css/styles.css" type="text/css">
 
-<style>
-/* Basic clearfix to clear floats */
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* 3D Effect for Header */
-.top-nav {
-    background-color: #3c49a2; /* Dark background color */
-    color: #fff; /* Light text color */
-    font-size: 2rem;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 3D shadow under the header */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 3D effect on text */
-    border-radius: 8px; /* Rounded edges for a softer 3D effect */
-}
-
-/* Add hover effect for additional 3D depth */
-.top-nav:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    transform: translateY(-2px); /* Lift effect */
-}
-
-/* Optional: transition effect for smoother interaction */
-.top-nav {
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-    @font-face {
-        font-family: 'HarmonyOS_Sans';
-        src: URL(../img/fontNew/HarmonyOS_Sans_Light.ttf);
-        font-weight: 200;
-    }
-
-    @font-face {
-        font-family: 'HarmonyOS_Sans';
-        src: URL(../img/fontNew/HarmonyOS_Sans_Regular.ttf);
-        font-weight: 400;
-    }
-
-    @font-face {
-        font-family: 'HarmonyOS_Sans';
-        src: URL(../img/fontNew/HarmonyOS_Sans_Medium.ttf);
-        font-weight: 500;
-    }
-
-    @font-face {
-        font-family: 'HarmonyOS_Sans';
-        src: URL(../img/fontNew/HarmonyOS_Sans_Bold.ttf);
-        font-weight: bold;
-    }
-
-.boardnumberbtn a {
-    color: #454545;
-}
-.boardnumberbtn > span {
-    line-height: 20px;
-    display: inline-block;
-}
-</style>
-
 </head>
+
 <body>
-    
+
     <div class="max-header">
-    <div class="clearfix top-nav">
-        <div class="boxW">
-            <div class="fl">
-                <a href="index.html" style="line-height: 0px;display: ruby-text;">
-                    <img src="../img/img/nlogo.png" class="" style="height: 40px;">
-                    <span class="f12 white">PCB By- Don Electronics</span>
-                </a>
+        <div class="clearfix top-nav">
+            <div class="boxW">
+                <div class="fl">
+                    <a href="index.html" style="line-height: 0px;display: ruby-text;">
+                        <img src="../img/img/nlogo.png" class="" style="height: 40px;">
+                        <span class="f12 white">PCB By- Don Electronics</span>
+                    </a>
+                </div>
+                <div id="topLoginContainer" class="nheadr21">
+                    <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics"
+                        previewlistener="true">PCB </a>
+                    <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics/mouser-API"
+                        previewlistener="true">Mouser API</a>
+                </div>
             </div>
-            <div id="topLoginContainer" class="nheadr21">
-                <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics" previewlistener="true">PCB </a>
-               <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics/mouser-API" previewlistener="true">Mouser API</a>
-           </div>
         </div>
     </div>
-</div>
-<div class="min-header">
-    <div class="min-top-nav clearfix">
-        <div class="fl">
-            <i class="back"></i>
-            <a href="index.html" style="text-decoration:none"><img src="../img/img/nlogo.png" class="mr10"></a>
-        </div>
-        <div class="fr">
-            <span>
-                <a href="cart/index.html"><img src="../img/img/index/che.png"></a>
-            </span>
-            <span class="meunswitch"><img src="../img/img/index/menu.png"></span>
+    <div class="min-header">
+        <div class="min-top-nav clearfix">
+            <div class="fl">
+                <i class="back"></i>
+                <a href="index.html" style="text-decoration:none"><img src="../img/img/nlogo.png" class="mr10"></a>
+            </div>
+            <div class="fr">
+                <span>
+                    <a href="cart/index.html"><img src="../img/img/index/che.png"></a>
+                </span>
+                <span class="meunswitch"><img src="../img/img/index/menu.png"></span>
+            </div>
         </div>
     </div>
-</div>
 
     <div class="APIcontainer">
         <h1>Mouser Search API</h1>
-        <form id="searchForm">
+        <form id="searchForm" enctype="multipart/form-data">
             <div class="input-group">
                 <label for="keyword">Keyword:</label>
                 <input type="text" id="keyword" name="keyword">
@@ -120,67 +60,72 @@
             </div>
             <button type="submit">Search</button>
         </form>
-        <div id="results">
-            <p id="total-results" class="total-results"></p>
-            <div class="table-wrapper">
-                <table id="results-table" class="results-table">
-                    <thead>
-                        <tr>
-                            <th class="table-header">Image</th>
-                            <th class="table-header">Mouser Part Number</th>
-                            <th class="table-header">Manufacturer Part Number</th>
-                            <th class="table-header">Description</th>
-                            <th class="table-header">Availability</th>
-                            <th class="table-header">PriceBreaks</th>
-                        </tr>
-                    </thead>
-                    <tbody id="results-body">
-                        <!-- Rows will be filled dynamically -->
-                    </tbody>
-                </table>
+
+        <p class="csv-instruction">Search with CSV:</p>
+
+        <!-- Drag-and-drop file upload -->
+        <div class="input-group">
+            <div class="upload-container" id="dropArea">
+                <label for="csvUpload" class="upload-label">
+                    Drag & Drop CSV Here or Click to Select File
+                    <span>Only .csv files are supported</span>
+                </label>
+                <input type="file" id="csvUpload" accept=".csv">
             </div>
-        </div>                
+        </div>        
+
+    <div id="results">
+        <p id="total-results" class="total-results"></p>
+        <div class="table-wrapper">
+            <table id="results-table" class="results-table">
+                <thead>
+                    <tr>
+                        <th class="table-header">Image</th>
+                        <th class="table-header">Mouser Part Number</th>
+                        <th class="table-header">Manufacturer Part Number</th>
+                        <th class="table-header">Description</th>
+                        <th class="table-header">Availability</th>
+                        <th class="table-header">Price Breaks</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body">
+                    <!-- Rows will be filled dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
     </div>
     <div style="margin-top:15%;"></div>
 
-        <div class="new-footer">
-    <div class="w1180 line-wrap">
-        <div class="clearfix">
-            <div class="bottom-navigation fl clearfix boxflxsb">
-                <div class="fl"><a href="index.html" style="display: ruby-text;"><img src="../img/img/nlogo.png" class="mr10"><span class="f12 white">PCB By - Don Electronics</span></a></div>
-   
+    <div class="new-footer">
+        <div class="w1180 line-wrap">
+            <div class="clearfix">
+                <div class="bottom-navigation fl clearfix boxflxsb">
+                    <div class="fl">
+                        <a href="index.html" style="display: ruby-text;">
+                            <img src="../img/img/nlogo.png" class="mr10">
+                            <span class="f12 white">PCB By - Don Electronics</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-mail fl">
+                    <a class="f14 cl-A5915F mb5" href="mailto:muhammadsaifullah@don.co.uk" title="Customer Support">
+                        <i class="serviceico"></i>Muhammad Saif
+                    </a>
+                </div>
             </div>
-
-            <div class="contact-mail fl">
-                
-                <a class="f14 cl-A5915F mb5" href="mailto:muhammadsaifullah@don.co.uk" title="Customer Support"><i class="serviceico"></i>Muhammad Saif</a>
-            </div>
+            <div class="footbox clearfix"></div>
         </div>
 
-        <div class="footbox clearfix">
-           
-
+        <div class="minbothide">
+            <div class="text-center">
+                <p class="cl-7c7c7c">
+                    © Don Electronics, All Rights Reserved
+                </p>
+            </div>
         </div>
-
-
-
     </div>
-
-    <div class="minbothide">
-        <div class="text-center">
-           
-
-            <p class="cl-7c7c7c">
-                © Don Electronics, All Rights Reserved
-            </p>
-
-
-            
-        </div>
-
-  </div>
-</div>
-    
     <script type="text/javascript" src="js/search.js"></script>
 </body>
+
 </html>
