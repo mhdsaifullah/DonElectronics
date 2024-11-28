@@ -143,9 +143,9 @@ uploadContainer.addEventListener('drop', function (event) {
 // Process the CSV file
 function processCSV(csvData) {
     const lines = csvData.split('\n');
-    
+
     isManualSearch = false;  // Reset flag for CSV search
-    
+
     // Ensure there are rows in the CSV
     if (lines.length < 2) return;
 
@@ -180,7 +180,7 @@ function processCSV(csvData) {
 function searchByMultiplePartNumber(apiKey, partNumber) {
 
     showLoading(); // Show loading before fetching
-    
+
     isManualSearch = false;  // Reset flag for CSV search
 
     clearResults();
@@ -213,6 +213,8 @@ function displayResults(data) {
     const resultsDiv = document.getElementById('results');
     const totalResultsEl = document.getElementById('total-results');
     const resultsTableBody = document.getElementById('results-body');
+
+    document.getElementById('clearResultsBtn').style.display = 'inline-block';
 
     // Show results container
     resultsDiv.style.display = 'block';
@@ -301,13 +303,13 @@ function hideLoading() {
 function clearResults() {
     const resultsTableBody = document.getElementById('results-body');
     const resultsDiv = document.getElementById('results');
-    
+
     // Clear the table and hide the container
     resultsTableBody.innerHTML = '';
     resultsDiv.style.display = 'none';
 }
 
-function cslearResults() {
+function clearResultsBtn() {
     const resultsTableBody = document.getElementById('results-body');
     const resultsDiv = document.getElementById('results');
     const clearButton = document.getElementById('clearResultsBtn');

@@ -58,7 +58,13 @@
                 <label for="partNumber">Part Number:</label>
                 <input type="text" id="partNumber" name="partNumber">
             </div>
-            <button type="submit" id="manualSearchButton">Search</button>
+
+
+            <div class="button-container">
+                <button type="submit" id="manualSearchButton">Search</button>
+
+            </div>
+
         </form>
 
         <p class="csv-instruction">Search with CSV:</p>
@@ -73,32 +79,35 @@
                 <input type="file" id="csvUpload" accept=".csv">
             </div>
         </div>
-        
+
         <div id="loading" style="display: none;">
             <div class="spinner"></div>
             <p>Don Electronics</p>
-        </div>      
-
-    <div id="results">
-        <p id="total-results" class="total-results"></p>
-        <div class="table-wrapper">
-            <table id="results-table" class="results-table">
-                <thead>
-                    <tr>
-                        <th class="table-header">Image</th>
-                        <th class="table-header">Mouser Part Number</th>
-                        <th class="table-header">Manufacturer Part Number</th>
-                        <th class="table-header">Description</th>
-                        <th class="table-header">Availability</th>
-                        <th class="table-header">Price Breaks</th>
-                    </tr>
-                </thead>
-                <tbody id="results-body">
-                    <!-- Rows will be filled dynamically -->
-                </tbody>
-            </table>
         </div>
-    </div>
+
+        <div id="results">
+            <div class="results-container">
+            <p id="total-results" class="total-results"></p>
+            <button id="clearResultsBtn" onclick="clearResultsBtn()">Clear Results</button>
+        </div>
+            <div class="table-wrapper">
+                <table id="results-table" class="results-table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">Image</th>
+                            <th class="table-header">Mouser Part Number</th>
+                            <th class="table-header">Manufacturer Part Number</th>
+                            <th class="table-header">Description</th>
+                            <th class="table-header">Availability</th>
+                            <th class="table-header">Price Breaks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- Rows will be filled dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <div style="margin-top:15%;"></div>
 

@@ -1,7 +1,9 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
+
 /* Basic clearfix to clear floats */
 .clearfix::after {
     content: "";
@@ -11,21 +13,27 @@ html, body {
 
 /* 3D Effect for Header */
 .top-nav {
-    background-color: #3c49a2; /* Dark background color */
-    color: #fff; /* Light text color */
+    background-color: #3c49a2;
+    /* Dark background color */
+    color: #fff;
+    /* Light text color */
     font-size: 2rem;
     padding: 20px;
     text-align: center;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 3D shadow under the header */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 3D effect on text */
-    border-radius: 8px; /* Rounded edges for a softer 3D effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* 3D shadow under the header */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /* 3D effect on text */
+    border-radius: 8px;
+    /* Rounded edges for a softer 3D effect */
     transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .top-nav:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    transform: translateY(-2px); /* Lift effect */
+    transform: translateY(-2px);
+    /* Lift effect */
 }
 
 /* Font Faces */
@@ -60,24 +68,32 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px dashed #007bff;  /* Dashed border with theme color */
+    border: 2px dashed #007bff;
+    /* Dashed border with theme color */
     border-radius: 8px;
-    padding: 40px;  /* Increased padding for larger area */
-    background-color: #f0f8ff;  /* Light blue background */
+    padding: 40px;
+    /* Increased padding for larger area */
+    background-color: #f0f8ff;
+    /* Light blue background */
     transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
     cursor: pointer;
     text-align: center;
 }
 
 .upload-container input[type="file"] {
-    display: none;  /* Hide the default file input */
+    display: none;
+    /* Hide the default file input */
 }
 
 .upload-container:hover {
-    background-color: #e6f2ff;  /* Lighter blue on hover */
-    border-color: #0056b3;  /* Darker blue border on hover */
-    transform: scale(1.01);  /* Slight scale effect */
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);  /* Soft shadow */
+    background-color: #e6f2ff;
+    /* Lighter blue on hover */
+    border-color: #0056b3;
+    /* Darker blue border on hover */
+    transform: scale(1.01);
+    /* Slight scale effect */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    /* Soft shadow */
 }
 
 .upload-label {
@@ -94,7 +110,8 @@ html, body {
 
 .upload-label span {
     font-size: 14px;
-    color: #555;  /* Slightly darker text for description */
+    color: #555;
+    /* Slightly darker text for description */
     margin-top: 10px;
 }
 
@@ -115,12 +132,15 @@ html, body {
     font-size: 14px;
     margin-bottom: 5px;
 }
+
 .input-group input[type="text"],
 .input-group .upload-container {
-    width: 100%;  /* Make sure input fields and upload container take full width */
+    width: 100%;
+    /* Make sure input fields and upload container take full width */
     padding: 8px;
     font-size: 14px;
 }
+
 .input-group input,
 .input-group button {
     width: 100%;
@@ -149,7 +169,8 @@ html, body {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Include padding and border in width and height */
+    box-sizing: border-box;
+    /* Include padding and border in width and height */
 }
 
 /* General Styles */
@@ -167,7 +188,8 @@ body {
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 h1 {
@@ -209,6 +231,14 @@ input[type="text"]:focus {
     outline: none;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Centers the buttons horizontally */
+    gap: 10px;
+    /* Adds space between the buttons */
+}
+
 button {
     align-self: center;
     padding: 10px 30px;
@@ -226,22 +256,32 @@ button:hover {
 }
 
 #results {
-    display: none; /* Hidden by default */
-    background-color: #fff; /* White background */
-    padding-top: 30px; /* Padding inside the card */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    width: auto; /* Allow the card to adjust width based on content */
+    display: none;
+    /* Hidden by default */
+    background-color: #fff;
+    /* White background */
+    padding-top: 30px;
+    /* Padding inside the card */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+    width: auto;
+    /* Allow the card to adjust width based on content */
     /* max-width: 90%;  Ensure it doesn't get too wide */
-    margin-left: auto; /* Center horizontally */
-    margin-right: auto; /* Center horizontally */
+    margin-left: auto;
+    /* Center horizontally */
+    margin-right: auto;
+    /* Center horizontally */
 }
 
 .csv-instruction {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px; /* Space between the text and file upload */
-    color: #333; /* Adjust color as needed */
+    margin-bottom: 10px;
+    /* Space between the text and file upload */
+    color: #333;
+    /* Adjust color as needed */
 }
 
 .total-results {
@@ -265,9 +305,12 @@ button:hover {
 
 /* Optional: Add hover effect for interactivity */
 .total-results:hover {
-    cursor: grabbing; /* Pointer cursor to indicate interactivity */
-    color: #ff6600; /* Slightly darker orange on hover */
-    border-color: #ff6600; /* Darker border color on hover */
+    cursor: grabbing;
+    /* Pointer cursor to indicate interactivity */
+    color: #ff6600;
+    /* Slightly darker orange on hover */
+    border-color: #ff6600;
+    /* Darker border color on hover */
 }
 
 
@@ -278,12 +321,15 @@ table {
     word-wrap: break-word;
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    word-wrap: break-word; /* Allow content to wrap */
-    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word;
+    /* Allow content to wrap */
+    overflow-wrap: break-word;
+    /* Break long words */
 }
 
 th {
@@ -299,8 +345,10 @@ img {
 
 /* Wrap the table in a scrollable div for small screens */
 .table-wrapper {
-    overflow-x: auto; /* Enable horizontal scroll for tables on small screens */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    overflow-x: auto;
+    /* Enable horizontal scroll for tables on small screens */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling for iOS */
 }
 
 /* Responsive Design */
@@ -319,21 +367,25 @@ img {
         gap: 10px;
     }
 
-    th, td {
+    th,
+    td {
         font-size: 0.9rem;
         padding: 8px;
     }
 }
 
 @media (max-width: 500px) {
-    th, td {
+
+    th,
+    td {
         display: block;
         text-align: right;
         position: relative;
         padding-left: 50%;
     }
 
-    th::before, td::before {
+    th::before,
+    td::before {
         content: attr(data-label);
         position: absolute;
         left: 10px;
@@ -366,7 +418,8 @@ img {
     border: 2px solid #007bff;
     border-radius: 6px;
     background-color: #ffffff;
-    background-image: linear-gradient(white, #f9f9f9); /* Light gradient effect */
+    background-image: linear-gradient(white, #f9f9f9);
+    /* Light gradient effect */
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -384,13 +437,16 @@ img {
 }
 
 .price-dropdown::after {
-    content: '▼'; /* Downward arrow character */
+    content: '▼';
+    /* Downward arrow character */
     position: absolute;
     right: 12px;
     top: 50%;
-    transform: translateY(-50%); /* Vertically center the arrow */
+    transform: translateY(-50%);
+    /* Vertically center the arrow */
     color: #007bff;
-    font-size: 18px; /* Size of the arrow */
+    font-size: 18px;
+    /* Size of the arrow */
     pointer-events: none;
 }
 
@@ -445,15 +501,20 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent overlay */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Semi-transparent overlay */
     z-index: 9999;
-    flex-direction: column; /* Stack spinner and text vertically */
-    text-align: center; /* Center the text */
+    flex-direction: column;
+    /* Stack spinner and text vertically */
+    text-align: center;
+    /* Center the text */
 }
 
 .spinner {
-    border: 4px solid #f3f3f3; /* Light gray */
-    border-top: 4px solid #3498db; /* Blue color */
+    border: 4px solid #f3f3f3;
+    /* Light gray */
+    border-top: 4px solid #3498db;
+    /* Blue color */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -462,37 +523,56 @@ img {
 
 /* Loading text styling with fading effect */
 #loading p {
-    position: relative;  /* Change this to absolute if needed */
-    margin-top: 10px; /* Space between spinner and text */
+    position: relative;
+    /* Change this to absolute if needed */
+    margin-top: 10px;
+    /* Space between spinner and text */
     font-size: 30px;
-font-style: italic;
+    font-style: italic;
     color: #007bff;
     font-weight: bold;
-    animation: colorRotate 1s infinite; /* Fading effect */
+    animation: colorRotate 1s infinite;
+    /* Fading effect */
 }
 
 /* Spinner animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes colorRotate {
     from {
-      color: #007bff;
+        color: #007bff;
     }
+
     50% {
-      color: #0099ff;
+        color: #0099ff;
     }
+
     100% {
-      color: #3b49a2;
+        color: #3b49a2;
     }
-  }
+}
+
 /* Fading effect for the text */
 @keyframes fadeText {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Responsiveness */
@@ -516,4 +596,48 @@ font-style: italic;
     #loading p {
         font-size: 1em;
     }
+}
+
+#clearResultsBtn {
+    display: none;
+    /* Hide until results are shown */
+    background-color: #a5a3a3;
+    /* Optional: red background */
+    color: white;
+    /* Text color */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    /* Rounded corners */
+    margin-right: 20px;
+    /* Space from the right edge */
+    margin-bottom: 10px;
+}
+
+#clearResultsBtn:hover {
+    background-color: #f44336;
+    /* Optional: red background */
+}
+
+
+/* Style for the container */
+.results-container {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Align vertically (if needed) */
+    gap: 10px;
+    /* Optional: space between elements */
+    max-width: 100%;
+    /* Ensure it doesn't get too wide */
+}
+
+.total-results {
+    flex: 1;
+    /* Take remaining space */
+    text-align: center;
+    /* Center-align the text */
+    font-weight: bold;
+    /* Optional: for emphasis */
 }
