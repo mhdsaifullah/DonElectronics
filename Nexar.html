@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexar API Part Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .result-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>API Part Search Code</h1>
+    <p>Enter a part number below and click "Search" to fetch results from the Nexar API.</p>
+    <input type="text" id="partNumber" placeholder="Enter part number" style="width: 300px; padding: 8px;">
+    <button id="fetchData">Search</button>
+    <div class="results" id="results"></div>
+
+    <script>
+        // Nexar API credentials
+        const CLIENT_ID = '9ab45e5d-deef-4203-b82c-eccdc5cccf74'; // Replace with yxour Nexar Client ID
+        const CLIENT_SECRET = 'pUUGNH1wXzpZmf7Rfiv4dyA_KPkzrZ4c-Kox'; // Replace with your Nexar Client Secret
+
+        async function fetchNexarData(partNumber) {
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "Fetching data...";
+
+            try {
+                // Step 1: Get Access Token
+                const tokenResponse = await fetch("https://identity.nexar.com/connect/token", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams({
+                        client_id: CLIENT_ID,
+                        client_secret: CLIENT_SECRET,
+                        grant_type: "client_credentials",
+                        scope: "supply.design search"
+                    })
+                });
+
+                if (!tokenResponse.ok) {
+                    throw new Error("Failed to fetch access token");
+                }
+
+                const tokenData = await tokenResponse.json();
+                const accessToken = tokenData.access_token;
+
+                // Step 2: Query Nexar API
+                const query = {
+                    query: `
+                        query {
+                            search(q: "${partNumber}", first: 5) {
+                                results {
+                                    part {
+                                        mpn
+                                        manufacturer {
+                                            name
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    `
+                };
+
+                const apiResponse = await fetch("https://api.nexar.com/graphql", {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${accessToken}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(query)
+                });
+
+                if (!apiResponse.ok) {
+                    throw new Error("Failed to fetch data from Nexar API");
+                }
+
+                const apiData = await apiResponse.json();
+
+                // Step 3: Display Results
+                resultsDiv.innerHTML = ""; // Clear previous results
+                const results = apiData.data.search.results;
+
+                if (results.length === 0) {
+                    resultsDiv.innerHTML = "<p>No results found.</p>";
+                } else {
+                    results.forEach((result) => {
+                        const part = result.part;
+                        const itemDiv = document.createElement("div");
+                        itemDiv.className = "result-item";
+                        itemDiv.innerHTML = `
+                            <p><strong>MPN:</strong> ${part.mpn}</p>
+                            <p><strong>Manufacturer:</strong> ${part.manufacturer.name}</p>
+                        `;
+                        resultsDiv.appendChild(itemDiv);
+                    });
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            }
+        }
+
+        document.getElementById("fetchData").addEventListener("click", () => {
+            const partNumber = document.getElementById("partNumber").value.trim();
+            if (partNumber === "") {
+                alert("Please enter a part number!");
+                return;
+            }
+            fetchNexarData(partNumber);
+        });
+    </script>
+</body>
+</html>
