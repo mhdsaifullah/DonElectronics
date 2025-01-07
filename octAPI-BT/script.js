@@ -87,20 +87,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayResults(results) {
-        const container = document.getElementById('results-container');
-        container.innerHTML = '';
-        results.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'item';
-            div.innerHTML = `
-                <strong>MPN:</strong> ${item.part.mpn} <br>
-                <strong>Description:</strong> ${item.part.shortDescription} <br>
-                <strong>Manufacturer:</strong> ${item.part.manufacturer.name} <br>
-                <strong>Category:</strong> ${item.part.category.name} <br>
-                <strong>Median Price (1000 units):</strong> ${item.part.medianPrice1000.price} ${item.part.medianPrice1000.currency} <br>
-                <strong>Octopart URL:</strong> <a href="${item.part.octopartUrl}" target="_blank">${item.part.octopartUrl}</a>
-            `;
-            container.appendChild(div);
-        });
-    }
+		const container = document.getElementById('results-container');
+		container.innerHTML = '';  // Clear previous results
+		results.forEach(item => {
+			const div = document.createElement('div');
+			div.className = 'item';
+			div.innerHTML = `
+				<strong>MPN:</strong> ${item.part.mpn} <br>
+				<strong>Description:</strong> ${item.part.shortDescription} <br>
+				<strong>Manufacturer:</strong> ${item.part.manufacturer.name} <br>
+				<strong>Category:</strong> ${item.part.category.name} <br>
+				<strong>Median Price (1000 units):</strong> ${item.part.medianPrice1000.price} ${item.part.medianPrice1000.currency} <br>
+				<strong>Octopart URL:</strong> <a href="${item.part.octopartUrl}" target="_blank">${item.part.octopartUrl}</a> <br>
+				<strong>Image:</strong> <img src="${item.part.images[0].url}" alt="${item.part.name}" style="max-width: 100px;"> <br>
+				<strong>Sellers:</strong> ${item.part.sellers.map(seller => `
+					${seller.company.name} (${seller.country}) - <a href="${seller.company.homepageUrl}" target="_blank">${seller.company.homepageUrl}</a>
+					Offers: ${seller.offers.map(offer => `
+						SKU: ${offer.sku}, Inventory: ${offer.inventoryLevel}, MOQ: ${offer.moq}, Price: ${offer.prices[0].price} ${offer.prices[0].currency}, <a href="${offer.clickUrl}" target="_blank">Buy</a> <br>
+					`).join('')} <br>
+				`).join('')}
+				<hr>
+			`;
+			container.appendChild(div);
+		});
+	}	
 });
