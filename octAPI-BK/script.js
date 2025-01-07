@@ -40,14 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     country: "GB",
                     start: 0,
                     inStockOnly: true,
-                    filters: {
-                        offers: {
-                            prices: {
-                                min: 1.0,
-                                max: 60.0
-                            }
-                        }
-                    },
+                    
                     limit: 1
                 ) {
                     hits
