@@ -14,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     country: "GB",
                     start: 0,
                     inStockOnly: true,
+                    filters: {
+                        offers: {
+                            prices: {
+                                min: 1.0,
+                                max: 60.0
+                            }
+                        }
+                    },
                     limit: 1
                 ) {
                     hits
@@ -73,35 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         `;
 
-        try {
-            const response = await fetch('https://api.nexar.com/graphql', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjA5NzI5QTkyRDU0RDlERjIyRDQzMENBMjNDNkI4QjJFIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MzYyNTQwODEsImV4cCI6MTczNjM0MDQ4MSwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS5uZXhhci5jb20iLCJjbGllbnRfaWQiOiI5YWI0NWU1ZC1kZWVmLTQyMDMtYjgyYy1lY2NkYzVjY2NmNzQiLCJzdWIiOiJFNzg3NkI5MS0zRkIwLTRCQjgtODY0OC1DOTVBOTYzMDA1NzEiLCJhdXRoX3RpbWUiOjE3MzYyNDM3NDcsImlkcCI6ImxvY2FsIiwicHJpdmF0ZV9jbGFpbXNfaWQiOiI1NDlhYWQ3YS03M2IxLTRlZjktYTg0My1jMTg5NzhhMTYxMTAiLCJwcml2YXRlX2NsYWltc19zZWNyZXQiOiJmZGp6R1lDTGdEMXM0NTdIT2VEbGp3Um9PQ0s1UzEvSGZtMTI0eUxJN1ZVPSIsImp0aSI6IkI2MEY1MDQ3MDU4MDc5RUMwNjM1MjQyQzRERDkyNTQ0Iiwic2lkIjoiRjMyQUYyOUFBOUM0NTM1REVCQUVEMjkyOTNBRjkwRDMiLCJpYXQiOjE3MzYyNTQwODEsInNjb3BlIjpbIm9wZW5pZCIsInVzZXIuYWNjZXNzIiwicHJvZmlsZSIsImVtYWlsIiwidXNlci5kZXRhaWxzIiwic3VwcGx5LmRvbWFpbiIsImRlc2lnbi5kb21haW4iXSwiYW1yIjpbInB3ZCJdfQ.nqI-9W3mu7K00TcQMRX8pZBqoKNjsQarxmYehD5td_4clvQ9C7BRprBL1nuMDJCJIKNlNDGJfMBhsodZMuXO-NexC4F_DQ1Hxl9XzIa3XuOR3V9bFm2jxUk_qsE8F6hFvP1Oi_DllWTtEh38SYI1_Q9YgURYKaxr5J-meTeVOh5_u2DDFTB7kTQUSQ1Wnlqa7A43P75O31aRK6f45JRZTWolaUIoskNM7ObCVwqa4CzbbEDchCwBvZHuIP-dZ744IMfOHfa-_O8ZABXibyZcGDs_nsUjHmktgQfqywYByUwwMDqnUHdRdSX_S-_FVSXDzA3O6AcDZ2t3RpY4AMEfKg'
-                },
-                body: JSON.stringify({ query: gqlQuery })
-            });
-
-            const result = await response.json();
-
-            if (result.errors) {
-                console.error('GraphQL errors:', result.errors);
-                displayError('Error fetching data from API.');
-                return;
-            }
-
-            if (!result.data || !result.data.supSearch) {
-                console.error('Unexpected API response format:', result);
-                displayError('Unexpected response format from API.');
-                return;
-            }
-
-            displayResults(result.data.supSearch.results);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            displayError('Error fetching data from API.');
-        }
+        const response = await fetch('https://api.nexar.com/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer YOUR_NEXAR_API_TOKEN'
+            },
+            body: JSON.stringify({ query: gqlQuery })
+        });
+        
+        const result = await response.json();
+        displayResults(result.data.supSearch.results);
     }
 
     function displayResults(results) {
@@ -120,10 +110,5 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             container.appendChild(div);
         });
-    }
-
-    function displayError(errorMessage) {
-        const container = document.getElementById('results-container');
-        container.innerHTML = `<div class="error">${errorMessage}</div>`;
     }
 });
