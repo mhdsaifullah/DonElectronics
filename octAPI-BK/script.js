@@ -1,5 +1,3 @@
-import config from 'config.js';
-
 document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.getElementById('search-button');
     searchButton.addEventListener('click', function() {
@@ -40,7 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     country: "GB",
                     start: 0,
                     inStockOnly: true,
-                    
+                    filters: {
+                        offers: {
+                            prices: {
+                                min: 1.0,
+                                max: 60.0
+                            }
+                        }
+                    },
                     limit: 1
                 ) {
                     hits
