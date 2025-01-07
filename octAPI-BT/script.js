@@ -93,22 +93,22 @@ document.addEventListener('DOMContentLoaded', function() {
 			const div = document.createElement('div');
 			div.className = 'item';
 			div.innerHTML = `
-				<strong>MPN:</strong> ${item.part.mpn} <br>
-				<strong>Description:</strong> ${item.part.shortDescription} <br>
-				<strong>Manufacturer:</strong> ${item.part.manufacturer.name} <br>
-				<strong>Category:</strong> ${item.part.category.name} <br>
-				<strong>Median Price (1000 units):</strong> ${item.part.medianPrice1000.price} ${item.part.medianPrice1000.currency} <br>
+				<strong>MPN:</strong> ${item.part.mpn || 'N/A'} <br>
+				<strong>Description:</strong> ${item.part.shortDescription || 'N/A'} <br>
+				<strong>Manufacturer:</strong> ${item.part.manufacturer.name || 'N/A'} <br>
+				<strong>Category:</strong> ${item.part.category.name || 'N/A'} <br>
+				<strong>Median Price (1000 units):</strong> ${item.part.medianPrice1000 ? item.part.medianPrice1000.price : 'N/A'} ${item.part.medianPrice1000 ? item.part.medianPrice1000.currency : ''} <br>
 				<strong>Octopart URL:</strong> <a href="${item.part.octopartUrl}" target="_blank">${item.part.octopartUrl}</a> <br>
-				<strong>Image:</strong> <img src="${item.part.images[0].url}" alt="${item.part.name}" style="max-width: 100px;"> <br>
+				<strong>Image:</strong> ${item.part.images[0] ? `<img src="${item.part.images[0].url}" alt="${item.part.name}" style="max-width: 100px;">` : 'No image available'} <br>
 				<strong>Sellers:</strong> ${item.part.sellers.map(seller => `
-					${seller.company.name} (${seller.country}) - <a href="${seller.company.homepageUrl}" target="_blank">${seller.company.homepageUrl}</a>
+					${seller.company.name || 'N/A'} (${seller.country || 'N/A'}) - <a href="${seller.company.homepageUrl || '#'}" target="_blank">${seller.company.homepageUrl || 'N/A'}</a>
 					Offers: ${seller.offers.map(offer => `
-						SKU: ${offer.sku}, Inventory: ${offer.inventoryLevel}, MOQ: ${offer.moq}, Price: ${offer.prices[0].price} ${offer.prices[0].currency}, <a href="${offer.clickUrl}" target="_blank">Buy</a> <br>
+						SKU: ${offer.sku || 'N/A'}, Inventory: ${offer.inventoryLevel || 'N/A'}, MOQ: ${offer.moq || 'N/A'}, Price: ${offer.prices && offer.prices.length > 0 ? offer.prices[0].price : 'N/A'} ${offer.prices && offer.prices.length > 0 ? offer.prices[0].currency : ''}, <a href="${offer.clickUrl || '#'}" target="_blank">Buy</a> <br>
 					`).join('')} <br>
 				`).join('')}
 				<hr>
 			`;
 			container.appendChild(div);
 		});
-	}	
+	}		
 });
