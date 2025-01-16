@@ -313,6 +313,135 @@ button:hover {
     /* Darker border color on hover */
 }
 
+.editable {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background-color: #f9f9f9;
+}
+
+.resizable {
+    cursor: col-resize;
+}
+
+#csvTable {
+    margin-bottom: 50px;
+}
+
+#csvTable table {
+    border-collapse: collapse;
+    /* This ensures that borders are not doubled */
+}
+
+/* Basic div styles */
+#csvTable {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-size: 14px;
+    /* Smaller font size */
+    text-align: left;
+}
+
+/* Inner table styles */
+#csvTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#csvTable th,
+#csvTable td {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+
+/* Header styles */
+#csvTable th {
+    background-color: #3b49a2;
+    /* Black header background */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Zebra striping for rows */
+#csvTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+    #csvTable table,
+    #csvTable thead,
+    #csvTable tbody,
+    #csvTable th,
+    #csvTable td,
+    #csvTable tr {
+        display: block;
+    }
+
+    /* Hide the headers */
+    #csvTable thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    #csvTable tr {
+        margin-bottom: 10px;
+    }
+
+    #csvTable td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    #csvTable td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+
+#csvTable th,
+#csvTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    /* Optional: Adds some padding for better spacing */
+    text-align: left;
+    /* Optional: Aligns text to the left */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    /* Optional: Adds some space between the buttons */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#csvTable::after {
+    content: "";
+    display: block;
+    border-top: 2px solid #ddd;
+    /* Thickness and color of the line */
+    margin: 50px 0;
+    /* Adds space above and below the line */
+    width: 100%;
+    /* Sets the width to 100% of the container */
+}
+
 
 /* Table Styles */
 table {
@@ -610,15 +739,14 @@ img {
     border-radius: 5px;
     /* Rounded corners */
     margin-right: 20px;
-    /* Space from the right edge */
     margin-bottom: 10px;
+    /* Space from the right edge */
 }
 
 #clearResultsBtn:hover {
     background-color: #f44336;
     /* Optional: red background */
 }
-
 
 /* Style for the container */
 .results-container {

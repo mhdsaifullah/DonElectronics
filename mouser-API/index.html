@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mouser Search API -Don Electronics</title>
+    <title>Mouser Search API - Don Electronics</title>
 
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <link type="text/css" rel="stylesheet" href="../img/css/newbase_v19f24.css" />
@@ -28,6 +28,7 @@
                         previewlistener="true">PCB </a>
                     <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics/mouser-API"
                         previewlistener="true">Mouser API</a>
+					<a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics/octAPI-BT" previewlistener="true">Octopart API</a>
                 </div>
             </div>
         </div>
@@ -86,10 +87,21 @@
         </div>
 
         <div id="results">
+            <div id="resCSV">
+                <p class="total-results">Uploaded CSV</p>
+
+                <div id="csvTable"></div>
+            </div>
             <div class="results-container">
-            <p id="total-results" class="total-results"></p>
-            <button id="clearResultsBtn" onclick="clearResultsBtn()">Clear Results</button>
-        </div>
+                <p id="total-results" class="total-results"></p>
+                <div class="button-container">
+                    <button id="downloadCSVBtn" onclick="downloadCSV()" style="margin-bottom: 10px;">Download
+                        CSV</button>
+                    <button id="clearResultsBtn" onclick="clearResultsBtn()">Clear Results</button>
+
+                </div>
+
+            </div>
             <div class="table-wrapper">
                 <table id="results-table" class="results-table">
                     <thead>
