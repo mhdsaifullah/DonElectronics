@@ -123,7 +123,7 @@ function displayResults(searchResults, partNumber) {
     resultsDiv.style.display = 'block';
 
     // Toggle visibility of the total-results element based on search type
-    totalResultsEl.style.display = isManualSearch ? 'block' : 'none';
+    totalResultsEl.style.display = isManualSearch ? 'block' : 'block'; //
     resCSV.style.display = isManualSearch ? 'none' : 'block';
     downloadCSV.style.display = isManualSearch ? 'none' : 'block';
 
