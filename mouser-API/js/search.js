@@ -151,7 +151,7 @@ function processCSV(csvData) {
     if (lines.length < 2) return;
 
     const headers = lines[0].split(',');
-    const partNumColumnIndex = headers.findIndex(header => header.trim().toLowerCase() === 'manufacturer part num');
+    const partNumColumnIndex = headers.findIndex(header => header.trim().toLowerCase() === 'manf #');
 
     if (partNumColumnIndex === -1) {
         console.error('Manufacturer Part Num column not found');
@@ -381,7 +381,7 @@ function handleFile(event) {
 
 function displayCSV(csv) {
     const rows = csv.trim().split(/\r?\n/).map(row => row.split(','));
-    headers = ["Serial Number", ...rows[0]];  // Add Serial Number header
+    headers = ["#", ...rows[0]];  // Add Serial Number header
 
     const table = document.createElement('table');
     table.innerHTML = '';
@@ -507,7 +507,7 @@ function updatePricesInTable(partNumber, price) {
     // Find the index of the "Manufacturer Part Num" column dynamically
     const headers = table.rows[0].cells;
     for (let j = 0; j < headers.length; j++) {
-        if (headers[j].textContent.trim().toLowerCase() === 'manufacturer part num') {
+        if (headers[j].textContent.trim().toLowerCase() === 'manf #') {
             partNumberColumnIndex = j;
             break;
         }
@@ -591,7 +591,7 @@ function addLinePriceSumRow() {
         if (headers[j].textContent.trim().toLowerCase().startsWith('line price')) {
             linePriceColumnIndex = j;
         }
-        if (headers[j].textContent.trim().toLowerCase() === 'serial number') {
+        if (headers[j].textContent.trim().toLowerCase() === '#') {
             serialNumberColumnIndex = j;
         }
     }
