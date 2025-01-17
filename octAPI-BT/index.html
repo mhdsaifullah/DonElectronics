@@ -1,16 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexar API Part Search Using Token</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Search for Electronic Parts</h1>
-    <input type="text" id="part-number" placeholder="Enter part number" value="DC-ME-Y402-C">
-    <button id="search-button">Search</button>
-    <div id="results-container"></div>
-    <script src="script.js"></script>
-</body>
+    <title>Octopart Search API - Don Electronics</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="../img/css/newbase_v19f24.css" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class="max-header">
+      <div class="clearfix top-nav">
+        <div class="boxW">
+          <div class="fl">
+            <a href="index.html" style="line-height: 0px;display: ruby-text;">
+              <img src="../img/img/nlogo.png" class="" style="height: 40px;">
+              <span class="f12 white">PCB By- Don Electronics</span>
+            </a>
+          </div>
+          <div id="topLoginContainer" class="nheadr21">
+            <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics" previewlistener="true">PCB </a>
+            <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics/mouser-API" previewlistener="true">Mouser API</a>
+            <a class="unLogined  head_btn logIn" href="https://mhdsaifullah.github.io/DonElectronics/octAPI-BT" previewlistener="true">Octopart API</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="min-header">
+      <div class="min-top-nav clearfix">
+        <div class="fl">
+          <i class="back"></i>
+          <a href="index.html" style="text-decoration:none">
+            <img src="../img/img/nlogo.png" class="mr10">
+          </a>
+        </div>
+        <div class="fr">
+          <span>
+            <a href="cart/index.html">
+              <img src="../img/img/index/che.png">
+            </a>
+          </span>
+          <span class="meunswitch">
+            <img src="../img/img/index/menu.png">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="APIcontainer">
+      <h1>Octopart Search API</h1>
+      <form id="searchForm" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="partNumber">Part Number:</label>
+          <input type="text" id="partNumber" name="partNumber">
+        </div>
+        <div class="button-container">
+          <button type="submit" id="manualSearchButton">Search</button>
+        </div>
+      </form>
+      <p class="csv-instruction">Search with CSV:</p>
+      <!-- Drag-and-drop file upload -->
+      <div class="input-group">
+        <div class="upload-container" id="dropArea">
+          <label for="csvUpload" class="upload-label"> Drag & Drop CSV Here or Click to Select File <span>Only .csv files are supported</span>
+          </label>
+          <input type="file" id="csvUpload" accept=".csv">
+        </div>
+      </div>
+      <div id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Don Electronics</p>
+      </div>
+      <div id="results">
+        <div id="resCSV">
+          <p class="total-results">Uploaded CSV</p>
+          <div id="csvTable"></div>
+        </div>
+        <div class="results-container">
+          <p id="total-results" class="total-results"></p>
+          <div class="button-container">
+            <button id="downloadCSVBtn" onclick="downloadCSV()" style="margin-bottom: 10px;">Download CSV</button>
+            <button id="clearResultsBtn" onclick="clearResultsBtn()">Clear Results</button>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table id="results-table" class="results-table">
+            <thead>
+              <tr>
+                <th class="table-header">Seller Name</th>
+                <th class="table-header">Country</th>
+                <th class="table-header">Homepage</th>
+                <th class="table-header">Inventory</th>
+                <th class="table-header">Price</th>
+                <th class="table-header">Buy</th>
+              </tr>
+            </thead>
+            <tbody id="results-body">
+              <!-- Rows will be filled dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:15%;"></div>
+    <div class="new-footer">
+      <div class="w1180 line-wrap">
+        <div class="clearfix">
+          <div class="bottom-navigation fl clearfix boxflxsb">
+            <div class="fl">
+              <a href="index.html" style="display: ruby-text;">
+                <img src="../img/img/nlogo.png" class="mr10">
+                <span class="f12 white">PCB By - Don Electronics</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-mail fl">
+            <a class="f14 cl-A5915F mb5" href="mailto:muhammadsaifullah@don.co.uk" title="Customer Support">
+              <i class="serviceico"></i>Muhammad Saif </a>
+          </div>
+        </div>
+        <div class="footbox clearfix"></div>
+      </div>
+      <div class="minbothide">
+        <div class="text-center">
+          <p class="cl-7c7c7c"> © Don Electronics, All Rights Reserved </p>
+        </div>
+      </div>
+    </div>
+    <script src="js/search.js"></script>
+  </body>
 </html>
