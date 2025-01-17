@@ -2,7 +2,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	const searchButton = document.getElementById('manualSearchButton');
 	searchButton.addEventListener('click', function(event) {
 		event.preventDefault(); // Prevent form submission
-		const partNumber = document.getElementById('partNumber').value;
+		
+		const partNumberInput = document.getElementById('partNumber');
+        const partNumber = partNumberInput.value.trim();
+
+        if (!partNumber) {
+            // Show validation message
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = 'Part number is required!';
+            errorMessage.style.display = 'block';
+            return; // Exit early if partNumber is empty
+        }
+
+        // Hide error message if input is valid
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.style.display = 'none';
+		
 		fetchPartData(partNumber);
 	});
 
