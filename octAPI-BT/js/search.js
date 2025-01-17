@@ -2,26 +2,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	const searchButton = document.getElementById('manualSearchButton');
 	searchButton.addEventListener('click', function(event) {
 		event.preventDefault(); // Prevent form submission
-		
+
 		const partNumberInput = document.getElementById('partNumber');
-        const partNumber = partNumberInput.value.trim();
+		const partNumber = partNumberInput.value.trim();
 
-        if (!partNumber) {
-            // Show validation message
-            const errorMessage = document.getElementById('error-message');
-            errorMessage.textContent = 'Part number is required!';
-            errorMessage.style.display = 'block';
-            return; // Exit early if partNumber is empty
-        }
+		if (!partNumber) {
+			// Show validation message
+			const errorMessage = document.getElementById('error-message');
+			errorMessage.textContent = 'Part number is required!';
+			errorMessage.style.display = 'block';
+			return; // Exit early if partNumber is empty
+		}
 
-        // Hide error message if input is valid
-        const errorMessage = document.getElementById('error-message');
-        errorMessage.style.display = 'none';
-		
+		// Hide error message if input is valid
+		const errorMessage = document.getElementById('error-message');
+		errorMessage.style.display = 'none';
+
 		fetchPartData(partNumber);
 	});
-
-	let isManualSearch = false; // Flag to track manual search
 
 	async function fetchPartData(partNumber) {
 		showLoading(); // Show loading before fetching
@@ -111,43 +109,43 @@ document.addEventListener('DOMContentLoaded', function() {
 		hideLoading();
 	}
 
-function displayResults(searchResults, partNumber) {
-    const resultsDiv = document.getElementById('results');
-    const totalResultsEl = document.getElementById('total-results');
-    const resultsTableBody = document.getElementById('results-body');
-    const resCSV = document.getElementById('resCSV');
-    const downloadCSV = document.getElementById('downloadCSVBtn');
-    const tableWrapper = document.querySelector('.table-wrapper');
+	function displayResults(searchResults, partNumber) {
+		const resultsDiv = document.getElementById('results');
+		const totalResultsEl = document.getElementById('total-results');
+		const resultsTableBody = document.getElementById('results-body');
+		const resCSV = document.getElementById('resCSV');
+		const downloadCSV = document.getElementById('downloadCSVBtn');
+		const tableWrapper = document.querySelector('.table-wrapper');
 
-    document.getElementById('clearResultsBtn').style.display = 'inline-block';
-    resultsDiv.style.display = 'block';
+		document.getElementById('clearResultsBtn').style.display = 'inline-block';
+		resultsDiv.style.display = 'block';
 
-    // Toggle visibility of the total-results element based on search type
-    totalResultsEl.style.display = isManualSearch ? 'none' : 'none'; // totalResultsEl.style.display = isManualSearch ? 'block' : 'none';
-    resCSV.style.display = isManualSearch ? 'none' : 'block';
-    downloadCSV.style.display = isManualSearch ? 'none' : 'block';
+		// Toggle visibility of the total-results element based on search type
+		totalResultsEl.style.display = isManualSearch ? 'block' : 'none';
+		resCSV.style.display = isManualSearch ? 'none' : 'block';
+		downloadCSV.style.display = isManualSearch ? 'none' : 'block';
 
-    const totalHits = searchResults.hits;
-    if (isManualSearch) {
-        totalResultsEl.textContent = `Number Of Results: ${totalHits}`;
-        totalResultsEl.style.display = 'block';
-    }
+		const totalHits = searchResults.hits;
+		if (isManualSearch) {
+			totalResultsEl.textContent = `Number Of Results: ${totalHits}`;
+			totalResultsEl.style.display = 'block';
+		}
 
-    // Clear previous results
-    resultsTableBody.innerHTML = '';
+		// Clear previous results
+		resultsTableBody.innerHTML = '';
 
-    if (!searchResults || searchResults.hits === 0 || !searchResults.results) {
-        // Display message for no results
-        const noResultsRow = document.createElement('tr');
-        noResultsRow.innerHTML = '<td colspan="6"><strong>No part found</strong></td>';
-        resultsTableBody.appendChild(noResultsRow);
-        return;
-    }
+		if (!searchResults || searchResults.hits === 0 || !searchResults.results) {
+			// Display message for no results
+			const noResultsRow = document.createElement('tr');
+			noResultsRow.innerHTML = '<td colspan="6"><strong>No part found</strong></td>';
+			resultsTableBody.appendChild(noResultsRow);
+			return;
+		}
 
-    // Display part details before the table starts
-    searchResults.results.forEach(item => {
-        const partDetailsDiv = document.createElement('div');
-        partDetailsDiv.innerHTML = `
+		// Display part details before the table starts
+		searchResults.results.forEach(item => {
+			const partDetailsDiv = document.createElement('div');
+			partDetailsDiv.innerHTML = `
             <div style="padding: 10px; border: 1px solid #ddd; margin-bottom: 10px;">
                 <table style="width: 100%;">
                     <tr>
@@ -165,15 +163,15 @@ function displayResults(searchResults, partNumber) {
                 </table>
             </div>
         `;
-        resultsDiv.insertBefore(partDetailsDiv, tableWrapper);
+			resultsDiv.insertBefore(partDetailsDiv, tableWrapper);
 
-        // Display seller data in table rows
-        item.part.sellers.forEach(seller => {
-            if (['GB', 'US', 'PL'].includes(seller.country)) {
-                seller.offers.forEach(offer => {
-                    const sellerRow = document.createElement('tr');
-                    sellerRow.classList.add('result-seller-row');
-                    sellerRow.innerHTML = `
+			// Display seller data in table rows
+			item.part.sellers.forEach(seller => {
+				if (['GB', 'US', 'PL'].includes(seller.country)) {
+					seller.offers.forEach(offer => {
+						const sellerRow = document.createElement('tr');
+						sellerRow.classList.add('result-seller-row');
+						sellerRow.innerHTML = `
                         <td>${seller.company.name || 'N/A'}</td>
                         <td>${seller.country || 'N/A'}</td>
                         <td><a href="${seller.company.homepageUrl || '#'}" target="_blank">${seller.company.homepageUrl || 'N/A'}</a></td>
@@ -181,33 +179,29 @@ function displayResults(searchResults, partNumber) {
                         <td>${offer.prices && offer.prices.length > 0 ? offer.prices[0].price : 'N/A'} ${offer.prices && offer.prices.length > 0 ? offer.prices[0].currency : ''}</td>
                         <td><a href="${offer.clickUrl || '#'}" target="_blank">Buy</a></td>
                     `;
-                    resultsTableBody.appendChild(sellerRow);
-                });
-            }
-        });
-    });
-}
-
-
-
-
-
-	function showLoading() {
-		document.getElementById('loading').style.display = 'flex';
-	}
-
-	function hideLoading() {
-		document.getElementById('loading').style.display = 'none';
-	}
-
-	function clearResultsBtn() {
-		const resultsTableBody = document.getElementById('results-body');
-		const resultsDiv = document.getElementById('results');
-		const clearButton = document.getElementById('clearResultsBtn');
-
-		// Clear the table and hide the container
-		resultsTableBody.innerHTML = '';
-		resultsDiv.style.display = 'none';
-		clearButton.style.display = 'none'; // Hide the clear button again
+						resultsTableBody.appendChild(sellerRow);
+					});
+				}
+			});
+		});
 	}
 });
+
+function showLoading() {
+	document.getElementById('loading').style.display = 'flex';
+}
+
+function hideLoading() {
+	document.getElementById('loading').style.display = 'none';
+}
+
+function clearResultsBtn() {
+	const resultsTableBody = document.getElementById('results-body');
+	const resultsDiv = document.getElementById('results');
+	const clearButton = document.getElementById('clearResultsBtn');
+
+	// Clear the table and hide the container
+	resultsTableBody.innerHTML = '';
+	resultsDiv.style.display = 'none';
+	clearButton.style.display = 'none'; // Hide the clear button again
+}
