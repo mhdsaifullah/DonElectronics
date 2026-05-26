@@ -300,8 +300,8 @@ button { font-family: inherit; }
 .hero h1 .copper, .hero h2 .copper { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -.02em; }
 .hero p.lede { font-size: 18px; color: var(--ink-2); max-width: 540px; margin: 0 0 24px; line-height: 1.55; }
 .hero-cta { display: flex; gap: 12px; align-items: center; margin-bottom: 28px; }
-.hero-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.08); }
-.hero-cta .btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: #fff; color: #fff; }
+.hero-cta .btn-ghost { color: var(--ink); border-color: var(--line-2); background: transparent; }
+.hero-cta .btn-ghost:hover { background: var(--surface); border-color: var(--ink-mute); color: var(--ink); }
 .hero-meta { display: flex; gap: 40px; padding-top: 16px; border-top: 1px solid var(--line); max-width: 540px; }
 .hero-meta div { display: flex; flex-direction: column; gap: 2px; }
 .hero-meta b { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
